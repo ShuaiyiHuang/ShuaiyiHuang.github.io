@@ -76,21 +76,7 @@ a:hover{
   border-radius: 20px;
 }
 
-.profile-info{
-  height: 275px;
-  vertical-align: center;
-  position: relative;
-  font-size: 18px;
-  background-color: rgba(30%,30%,30%,0.5);
-  border-radius: 20px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 20px;
-  /*
-  border-style: solid;
-  border-color: yellow;
-  */
-}
+
 
 .profile-description{
   margin: 0px 0px 0px;
@@ -319,3 +305,48 @@ hr {
 .navbar-fixed-top { background-color: rgba(45,45,45,0.5);transition: background-color 2s ease 0s;}
 .navbar-fixed-top.opaque { background-color: rgba(45,45,45,0.5);transition: background-color 2s ease 0s; }
 
+/*update by hsy*/
+
+/*orig*/
+
+/*.profile-info{*/
+/*  height: 275px;*/
+/*  vertical-align: center;*/
+/*  position: relative;*/
+/*  font-size: 18px;*/
+/*  background-color: rgba(30%,30%,30%,0.5);*/
+/*  border-radius: 20px;*/
+/*  padding-top: 10px;*/
+/*  padding-left: 10px;*/
+/*  padding-right: 20px;*/
+/*  !**/
+/*  border-style: solid;*/
+/*  border-color: yellow;*/
+/*  *!*/
+/*}*/
+
+.profile-info{
+  height: 350px;
+  vertical-align: center;
+  position: relative;
+  font-size: 18px;
+  background-color: rgba(30%,30%,30%,0.5);
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  /*
+  border-style: solid;
+  border-color: yellow;
+  */
+}
+
+.address{
+  margin: 10px auto 0px;
+  font-family: monospace;
+}
+
+.zipcode{
+  margin: 0px auto 0px;
+  font-family: monospace;
+}
