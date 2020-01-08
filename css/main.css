@@ -215,8 +215,16 @@ hr {
   background-color: #dddddd;
 }
 
+/*.footer > .container {*/
+/*  padding-top: 80px;*/
+/*  padding-right: 30px;*/
+/*  padding-left: 30px;*/
+/*  text-align: center;*/
+/*}*/
+
+/*updated by hsy*/
 .footer > .container {
-  padding-top: 80px;
+  padding-top: 5px;
   padding-right: 30px;
   padding-left: 30px;
   text-align: center;
