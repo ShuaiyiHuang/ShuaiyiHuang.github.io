@@ -104,64 +104,77 @@ p {
         </div>
 
 
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>Motivation</h3>
                 <p class="text-justify">
-                    TODO
+                  Due to the high cost of dense annotation, the semantic correspondence
+                  task only provides sparse keypoint annotations in the supervised setting. In this paper, we are motivated by how to better utilize the limited
+                  supervision. Specifically, we explore the techniques to generate pseudo-labels.
+                  However, due to the inevitably noisy effect of pseudo-labels, filtering out noisy
+                  pseudo-labels remains a challenging problem. Our key observation is that sparse
+                  keypoint annotations and their neighborhood encode rich semantic information.
+                  By utilizing this spatial prior, one can seek reliable pseudo-labels that are more
+                  likely in the foreground region of interest.
                 </p>
                 <p style="text-align:center;">
-                    <image src="images/teaser.png" height="320px" >
+                    <image src="images/teaser.png" height="290px" >
+                </p>
+                
+                <h3>Method overview</h3>
+                <p class="text-justify">
+                  We introduce a novel teacher-student learning paradigm to enrich the supervision guidance when only sparse annotations are available. Two key techniques are a novel spatial-prior based label filtering and a loss-driven
+                  dynamic label selection strategy for high-quality pseudo-label generation.
+                  <!-- <ul>
+                  <li>TODO A.</li>
+                  <li>TODO B.</li>
+                  <li>TODO C.</li>
+                  </ul> -->
+                </p>
+                <p style="text-align:center;">
+                  <image src="images/method.png" height="400px" >
                 </p>
 
                 <h3>Model overview</h3>
                 <p class="text-justify">
-                    Out model...
+                  We instantiate our novel learning strategy based on our proposed simple,
+                  yet effective network architecture for semantic correspondence without any transformer or 4D-conv for correlation refinement. The key ingredients
+                  are an efficient spatial context encoder and a high-resolution loss. The proposed network comprises three modules:
                     <ul>
-                    <li>TODO A.</li>
-                    <li>TODO B.</li>
-                    <li>TODO C.</li>
+                    <li>a feature extractor equipped with our
+                      efficient spatial context encoder </li>
+                    <li>a parameter-free correlation map module</li>
+                    <li>a flow estimator with high-resolution loss</li>
                     </ul>
                 </p>
                 <p style="text-align:center;">
-                    <image src="images/model.png" height="360px" >
+                    <image src="images/overview.png" height="260px" >
                 </p>
 
-                <h3>Method overview</h3>
-                <p class="text-justify">
-                    Out method...
-                    <ul>
-                    <li>TODO A.</li>
-                    <li>TODO B.</li>
-                    <li>TODO C.</li>
-                    </ul>
-                </p>
-                <p style="text-align:center;">
-                    <image src="images/model.png" height="360px" >
-                </p>
 
                 <h3>Experiments</h3>
                 <h4>SPair-71k Dataset</h4>
                 <p style="text-align:center;">
-                    <image src="images/exp_spair71k.png" height="360px" >
+                    <image src="images/exp_spair.png" height="360px" >
                 </p>
 
-                <h4>PF-PASCAL Dataset</h4>
+                <h4>PF-PASCAL Dataset & PF-WILLOW Dataset</h4>
                 <p style="text-align:center;">
-                    <image src="images/exp_pfpascal.png" height="300px" >
+                    <image src="images/exp_pfpascal.png" height="290px" >&emsp;
+                      <image src="images/exp_pfwillow.png" height="290px" >
                 </p>
 
-                <h4>PF-WILLOW Dataset</h4>
-                <p style="text-align:center;">
+                <!-- <h4>PF-WILLOW Dataset</h4> -->
+                <!-- <p style="text-align:center;">
                     <image src="images/exp_pfwillow.png" height="300px" >
-                </p>
+                </p> -->
 
                 <h4>Qualitative</h4>
                 <p style="text-align:center;">
-                    <image src="images/qualitative.png" height="300px"></image>
+                    <image src="images/vis_spair.png" height="460px"></image>
                 </p>
             </div>
-        </div> -->
+        </div>
 
 
         <hr style="max-width: 880px;">
