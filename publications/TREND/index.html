@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+p {
+  font-size: 15px;
+}
+
+</style>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>TREND</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/seal_icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main" >
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                TREND: Tri-teaching for Robust Preference-based Reinforcement Learning </br>
+                with Demonstrations</br> 
+                <small>
+                    ICRA 2025 
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                      <a href="https://shuaiyihuang.github.io/"><strong>Shuaiyi Huang</strong></a>,
+                      <a href="https://mlevy2525.github.io/">Mara Levy</a>,
+                      <a href="https://learn2phoenix.github.io/">Anubhav Gupta</a>,
+                      <a href="https://danielekpo.com/">Daniel Ekpo</a>,
+                      <a href="https://ruijiezheng.com/">Ruijie Zheng</a>,
+                      <a href="https://www.cs.umd.edu/~abhinav/">Abhinav Shrivastava</a>
+                    </li>
+                </ul>
+                 University of Maryland, College Park
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="./TREND_icra25.pdf">
+                               <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h4><strong>Code (Coming)</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Preference feedback collected by human or VLM
+annotators is often noisy, presenting a significant challenge for
+preference-based reinforcement learning that relies on accurate preference labels. To address this challenge, we propose
+TREND, a novel framework that integrates few-shot expert
+demonstrations with a tri-teaching strategy for effective noise
+mitigation. Our method trains three reward models simultaneously, where each model views its small-loss preference
+pairs as useful knowledge and teaches such useful pairs to its
+peer network for updating the parameters. Remarkably, our
+approach requires as few as one to three expert demonstrations
+to achieve high performance. We evaluate TREND on various
+robotic manipulation tasks, achieving up to 90% success rates
+even with noise levels as high as 40%, highlighting its effective
+robustness in handling noisy preference feedback.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                
+                
+                <h3 style="margin-top: 40px;">Method overview</h3>
+                <p class="text-justify">
+                    Overview of our method TREND. First, we pretrain the policy network using behavior cloning (BC) with few-shot expert
+                    demonstrations for effective exploration (A). In the online training phase, noisy preferences are collected from human annotators or a
+                    vision-language model (B1). We then apply our tri-teaching strategy for denoised reward learning, where three collaborative reward models
+                    identify clean preference samples for each other (B2). Finally, the learned reward model is used to guide the agent's training (B3), ensuring
+                    robust performance despite noisy labels.
+                  <!-- <ul>
+                  <li>TODO A.</li>
+                  <li>TODO B.</li>
+                  <li>TODO C.</li>
+                  </ul> -->
+                </p>
+                <p style="text-align:center;">
+                  <image src="images/method.png" height="270px" >
+                </p>
+
+                <h3 style="margin-top: 50px;">Experiments</h3>
+                <h4 style="margin-top: 20px;">Meta-World w/ Scripted Noisy Preference Annotator</h4>
+                <p style="text-align:left;">
+                    <!-- We evaluate TREND on three robotic manipulation
+tasks from Meta-world: Button-Press, Drawer-Open,
+and Hammer. These tasks are visually rich, with diverse
+textures and shading, requiring precise, fine-grained control
+to successfully manipulate objects. -->
+
+                    We generate synthetic preference feedback with an oracle reward. Specifically,
+                    we assume a scripted teacher that determines the preference between two trajectory segments based on the sum of the
+                    ground-truth reward for each segment. To mimic noisy preference labels, we introduce noise by flipping each preference label with a probability of ϵ =
+                    20%, 30%, 40%. As shown in the Figure below, our approach consistently outperforms all baselines across all noise levels.
+                </p>
+                <p style="text-align:center;">                    
+                    <image src="images/exp_trend_metaworld.jpg" height="480px" >
+                </p>
+                <p style="text-align:left;">
+                    Fig. 1: Learning curves for robot manipulation tasks on Meta-world. Each row represents results for a specific task and each column
+                    corresponds to a different error rate ϵ. Results are averaged over five seeds. Shaded Areas represent standard deviation across seeds.
+                </p>
+
+                <h4 style="margin-top: 20px;">Meta-World w/ VLM-based Preference Annotator</h4>
+
+                <p style="text-align:left;">
+                    We also evaluate TREND
+using preference labels generated by Gemini-1.5-Flash VLM, following <a href="https://arxiv.org/pdf/2402.03681">RL-VLM-F</a>. We prompt the
+VLM using rendered images of the two trajectory segments
+and the task description and obtain the generated preference
+label. 
+                </p>
+                <p style="text-align:center;">
+                    <image src="images/exp_trend_metaworld_vlm.jpg" height="320px" >
+                </p>
+                
+                
+                <p style="text-align:center;">
+                    Fig. 2: Results on Drawer-Open using VLM (Gemini-1.5-flash)
+                    to generate preference feedback. Our TREND-VLM-F achives the
+                    best result (left) under the high noise rate of VLM labels (right).
+                </p>
+                <!-- <h4>PF-WILLOW Dataset</h4> -->
+                <!-- <p style="text-align:center;">
+                    <image src="images/exp_pfwillow.png" height="300px" >
+                </p> -->
+
+                <!-- <h4>Ablation Study</h4>
+                <p style="text-align:center;">
+                    <image src="images/exp_trend_ablation.png" height="460px"></image>
+                </p> -->
+            </div>
+        </div>
+
+
+        <hr style="max-width: 880px;">
+        <div class="container" style="max-width: 880px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Citation</h3>
+                        <code>
+                        @inproceedings{huang2025trend,<br>
+                        &nbsp; title  = {TREND: Tri-teaching for Robust Preference-based Reinforcement Learning with Demonstrations},<br>
+                        &nbsp; author = {Huang, Shuaiyi and Levy, Mara and Gupta, Anubhav and Ekpo, Daniel and Zheng, Ruijie and Shrivastava, Abhinav},<br>
+                        &nbsp; booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},<br>
+                        &nbsp; year   = {2025},<br>
+                    }</code></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <br> The website template was borrowed from <a href="https://bmild.github.io">Ben Mildenhall</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
